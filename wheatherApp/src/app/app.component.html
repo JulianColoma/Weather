@@ -1,0 +1,69 @@
+
+<router-outlet></router-outlet>
+<div class="card card-body container p-4">
+   <div class="row">
+    
+    <div class="col-md-6 inputs">
+<div class="card card-body">
+    <form (submit)="submitLocation(cityName)">
+    <h1>Weather</h1>
+    <input type="text" placeholder="City Name" class="form-control" #cityName> 
+    <button class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+      </svg></button>
+</form>
+</div>
+    </div>
+    <div class="col-md-6">
+<div *ngIf="weather" [ngClass]="{'animate': aux}">
+
+ 
+<div class="card card-body ">
+ <div class="row">
+    <div class="col-md-5 col-sm-5 nameIMG">
+        <p class="temp">{{weather.main.temp}} °C</p>
+        <p class="name"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+          </svg> {{weather.name}}</p>
+        <p class="description">{{weather.weather[0].description}}</p>
+        <p class="description">{{weather.main.temp_min}} °C /{{weather.main.temp_max}} °C</p> 
+  <p class="description">Heat index {{weather.main.feels_like}} °C</p>
+  <p class="description">Pressure {{weather.main.pressure}} hPa</p>
+    </div>
+     <div class="col-md-7 col-sm-7" >
+        <div [ngSwitch]="weth" class="wethImg">
+            <img *ngSwitchCase="'Fog'" src="./../assets//fotos/neblina.png">
+            <img *ngSwitchCase="'Clouds'" src="./../assets//fotos/nubecon sol.png">
+            <img *ngSwitchCase="'Rain'" src="./../assets//fotos/nubeLluvia.png" >
+            <img *ngSwitchCase="'Thunderstorm'" src="./../assets//fotos/nubeRayo.png">
+            <img *ngSwitchCase="'Clear'" src="./../assets//fotos/sol.png">
+            <img *ngSwitchCase="'Windy'" src="./../assets//fotos/viento.png">
+        </div>
+    
+    </div> 
+   
+    </div>
+</div>
+
+<div class="cont card card-body">
+  <div class="row m-1 ">
+    <div class="col-md-6 caract wind">
+        <img src="../assets/fotos/viento.png">
+        <p>Wind</p>
+        <p>{{weather.wind.speed}} k/h</p>
+        
+    </div>
+    <div class="col-md-6 caract ">
+        <img src="../assets/fotos/humedad.png" class="humidity">
+        <p>Humidity</p>
+        <p>{{weather.main.humidity}} %</p>
+    </div>
+  </div>
+ 
+</div>
+</div>
+    </div>
+    
+   </div>
+   
+</div>

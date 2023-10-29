@@ -1,0 +1,78 @@
+
+@keyframes flotar {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-20px); 
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+*{
+  overflow: hidden;
+}
+.container{
+  background-color: #74b9ff;
+  top: 20px; 
+  height: 40%;
+ display: flex;
+}
+.animate{
+  animation:  backInDown;
+  animation-duration: 1s;
+}
+.humidity{
+  position:relative;
+ right:0.45em;
+}
+.btn{
+  border-radius: 30%;
+  padding-bottom: 8px;
+ position:relative;
+ bottom: 38px;
+ left: 547px;
+}
+.btn:hover{
+  background-color: #74b9ff;
+}
+img{
+  width: 300px;
+
+ color: black;
+}
+.nameIMG > p{
+  font-size: 3.5ch;
+}
+.description{
+  font-size: 1.8ch !important;
+}
+.cont{
+  margin-top: 5px;
+}
+.caract{
+  text-align: center;
+  font-size: 1.8ch !important;
+}
+.wethImg{
+ margin-top: 40px;
+  animation: flotar 3s ease-in-out infinite;
+}
+@media screen and (max-width: 1000px){
+  .card{
+ margin-top: 4px;
+ align-items: center;
+};
+
+.btn{
+ display: inline;
+};
+.container{
+ top: 0px;
+ width: 100%;
+}
+.humidity{
+  position: static;
+}
+}
